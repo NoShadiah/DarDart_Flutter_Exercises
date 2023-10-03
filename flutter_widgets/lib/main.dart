@@ -13,21 +13,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a blue toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
@@ -43,11 +28,11 @@ class ProductDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 240, 189, 127),
+        backgroundColor: Color.fromARGB(255, 77, 95, 57),
         appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 3, 9, 65),
-          titleTextStyle:
-              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          backgroundColor: Color.fromARGB(255, 0, 0, 0),
+          titleTextStyle: const TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
           title: Text(title),
         ),
         body: ListView(
@@ -59,7 +44,55 @@ class ProductDetailsPage extends StatelessWidget {
                   description:
                       "Colourful pink floral dress fit for sunny days with light weight",
                   price: "UGX: 55,000",
-                  image: "dress1.jpg")
+                  image: "dress1.jpg"),
+              Product(
+                  name: "Chiffon  floral",
+                  description:
+                      "Colourful pink floral dress fit for sunny days with light weight",
+                  price: "UGX: 50,000",
+                  image: "dress1.jpg"),
+              Product(
+                  name: "Chiffon Wild pink floral",
+                  description:
+                      "Colourful pink floral dress fit for sunny days with light weight",
+                  price: "UGX: 65,000",
+                  image: "dress1.jpg"),
+              Product(
+                  name: "Chiffon Summer pink floral",
+                  description:
+                      "Colourful pink floral dress fit for sunny days with light weight",
+                  price: "UGX: 55,000",
+                  image: "dress1.jpg"),
+              Product(
+                  name: "Chiffon  floral",
+                  description:
+                      "Colourful pink floral dress fit for sunny days with light weight",
+                  price: "UGX: 50,000",
+                  image: "dress1.jpg"),
+              Product(
+                  name: "Chiffon Wild pink floral",
+                  description:
+                      "Colourful pink floral dress fit for sunny days with light weight",
+                  price: "UGX: 65,000",
+                  image: "dress1.jpg"),
+              Product(
+                  name: "Chiffon Summer pink floral",
+                  description:
+                      "Colourful pink floral dress fit for sunny days with light weight",
+                  price: "UGX: 55,000",
+                  image: "dress1.jpg"),
+              Product(
+                  name: "Chiffon  floral",
+                  description:
+                      "Colourful pink floral dress fit for sunny days with light weight",
+                  price: "UGX: 50,000",
+                  image: "dress1.jpg"),
+              Product(
+                  name: "Chiffon Wild pink floral",
+                  description:
+                      "Colourful pink floral dress fit for sunny days with light weight",
+                  price: "UGX: 65,000",
+                  image: "dress1.jpg"),
             ]));
   }
 }
@@ -82,22 +115,37 @@ class Product extends StatelessWidget {
     return Container(
         padding: EdgeInsets.all(4),
         height: 120,
-        child: Card(
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Image.asset("assets/images/" + this.image, width: 40,),
-                Expanded(
-                  child: Container(
-                      // padding: EdgeInsets.all(),
-                      child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: <Widget>[
-                    Text("Name: " + this.name,
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text("Desription: " + this.description),
-                    Text("Price: " + this.price.toString()),
-                  ])),
-                )
-              ]),
+        child: GestureDetector(
+          onTap: () {
+            _showDialog(context);
+          },
+          child: Card(
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Image.asset(
+                    "assets/images/" + this.image,
+                    width: 140,
+                  ),
+                  Expanded(
+                    child: Container(
+                        // padding: EdgeInsets.all(),
+                        // textAlign: TextAlign.left,
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                          Text("Name: " + this.name,
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text("Description: " + this.description),
+                          Text("Price: " + this.price.toString()),
+                        ])),
+                  )
+                ]),
+          ),
         ));
   }
+}
+
+void _showDialog(BuildContext context) {
+  
 }
